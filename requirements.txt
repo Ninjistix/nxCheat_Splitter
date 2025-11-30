@@ -1,0 +1,5 @@
+# GUI library (built-in with Python, but listed for clarity)
+tkinter
+
+# Drag-and-drop support
+tkinterdnd2
