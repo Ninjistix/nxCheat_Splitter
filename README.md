@@ -3,7 +3,7 @@
 <img width="256" height="256" alt="converter" src="assets/icon.png" />
 
 A simple Windows tool to split Nintendo Switch cheat files into per-build-ID folders.  
-Compatible with Eden Emulator and similar emulators that require cheats in individual folders . 
+Compatible with Eden Emulator and similar emulators that require cheats in individual folders.  
 Supports drag-and-drop, dark mode, and Windows 10 & 11.
 
 ---
@@ -16,6 +16,7 @@ Supports drag-and-drop, dark mode, and Windows 10 & 11.
   - [Python Version](#python-version)  
   - [Pip Install Option](#pip-install-option)  
   - [Executable Version](#executable-version)  
+  - [Build from Source](#build-from-source)  
 - [Usage](#usage)  
 - [Screenshots](#screenshots)  
 - [Example](#example)  
@@ -43,6 +44,12 @@ Supports drag-and-drop, dark mode, and Windows 10 & 11.
   pip install tkinterdnd2
   ```
 
+* Build tool (for creating standalone `.exe`):
+
+  ```
+  pip install pyinstaller
+  ```
+
 > **Note:** Both `.py` and `.pyw` versions use the same dependencies.
 >
 > * `.py` shows a console window alongside the GUI.
@@ -61,12 +68,12 @@ Supports drag-and-drop, dark mode, and Windows 10 & 11.
    ```
 2. Navigate to the project folder:
 
-   ```bash
+   ```
    cd nxCheat_Splitter
    ```
 3. Install dependencies:
 
-   ```bash
+   ```
    pip install -r requirements.txt
    ```
 4. Run the program:
@@ -74,20 +81,22 @@ Supports drag-and-drop, dark mode, and Windows 10 & 11.
 * **Python GUI with console (`.py`)**
 
   ```
-  python src/cheat_converter_gui.py
+  python src/nxCheat_Splitter.py
   ```
 
 * **Python GUI without console (`.pyw`)**
 
   ```
-  pythonw src/cheat_converter_gui.pyw
+  pythonw src/nxCheat_Splitter.pyw
   ```
+
+> **Note:** The `.py` and `.pyw` files are located in the `src/` folder.
 
 #### Pip Install Option
 
 Install as a Python package and use the command line:
 
-```bash
+```
 pip install .
 nxcheat
 ```
@@ -96,20 +105,40 @@ This launches the GUI directly.
 
 #### Executable Version
 
-1. Download `Splitter.exe` from the Releases page.
+1. Download `nxCheat_Splitter.exe` from the `dist/` folder or the Releases page.
 2. Double-click to run — no Python installation required.
+
+> **Note:** The `.exe` is located in the `dist/` folder.
+
+#### Build from Source
+
+If you want to create your own executable (`nxCheat_Splitter.exe`):
+
+1. Ensure `pyinstaller` is installed:
+
+   ```
+   pip install pyinstaller
+   ```
+2. Run the provided `build.bat` in the project root.
+
+   * Automatically detects the main Python script (`src/nxCheat_Splitter.py` or `.pyw`) and icon (`assets/icon.ico`).
+   * Includes the `assets` folder in the `.exe`.
+   * The output `.exe` is named `nxCheat_Splitter.exe` in the `dist/` folder.
+   * Automatically deletes the `.spec` and `build/` folder after building to keep the repo clean.
+
+> **Note:** The build script works even if the project folder is renamed.
 
 ---
 
 ### Usage
 
 1. Ensure your cheat file is named `BUILDID.txt`, e.g., `421C5411B487EB4D.txt`.
-2. Open the program (Python, `.pyw`, or exe version).
+2. Open the program (`.py`, `.pyw`, or `nxCheat_Splitter.exe`).
 3. Paste cheats into the text box **or** drag-and-drop a `.txt` file **or** use `Browse .txt File`.
 4. Enter the Build ID manually if it is not automatically detected.
 5. Click **Split Cheat File Into Folders**.
 
-> **Note:** The output folders will be created **next to the location** of the `.py`, `.pyw`, or `.exe` file.
+> **Note:** Output folders are created **next to the `.py`, `.pyw`, or `.exe` file**.
 
 Output folders will have this structure:
 

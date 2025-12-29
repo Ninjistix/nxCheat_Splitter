@@ -3,3 +3,6 @@ tkinter
 
 # Drag-and-drop support
 tkinterdnd2
+
+# Build Python scripts into standalone executables
+pyinstaller
