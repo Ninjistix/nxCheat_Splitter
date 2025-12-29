@@ -1,11 +1,16 @@
 from setuptools import setup, find_packages
+from pathlib import Path
+
+# Read the README.md for long description
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="nxCheat_Splitter",
-    version="1.0.0",
+    version="1.1.0",  # updated version
     author="Ninjistix",
     description="A simple Windows tool to split Nintendo Switch cheat files into per-build-ID folders.",
-    long_description=open("README.md", encoding="utf-8").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Ninjistix/nxCheat_Splitter",
     packages=find_packages(where="src"),
